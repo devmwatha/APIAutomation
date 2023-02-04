@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230125 14:13:50.341" rpa="false" schemaversion="3">
+<suite id="s1" name="Google-Request" source="/Users/mwatha/PycharmProjects/APIAutomation/tests/google-request.robot">
+<test id="s1-t1" name="Simple request google page" line="5">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>google</arg>
+<arg>https://www.google.co.th</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230125 14:13:50.436" level="INFO">Creating Session using : alias=google, url=https://www.google.co.th, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230125 14:13:50.436" endtime="20230125 14:13:50.436"/>
+</kw>
+<status status="PASS" starttime="20230125 14:13:50.436" endtime="20230125 14:13:50.436"/>
+</test>
+<status status="PASS" starttime="20230125 14:13:50.342" endtime="20230125 14:13:50.437"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Google-Request">Google-Request</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
