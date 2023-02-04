@@ -5,7 +5,7 @@ Library  Selenium2Library
 Library  JSONLibrary
 
 *** Variables ***
-${base_url}     http://10.4.0.68:8081/payment/services/RequestMgrServices/
+${base_url}     http://url/payment/services/RequestMgrServices/
 
 *** Keywords ***
 Post Request
