@@ -1,32 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230203 10:20:26.100" rpa="false" schemaversion="3">
-<suite id="s1" name="apiTests" source="/Users/mwatha/PycharmProjects/APIAutomation/tests/apiTests.robot">
-<test id="s1-t1" name="Make a simple REST API call for Github users" line="7">
-<kw name="Post Request" library="api">
+<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230216 10:05:04.490" rpa="false" schemaversion="3">
+<suite id="s1" name="Maps" source="/Users/mwatha/PycharmProjects/APIAutomation/tests/maps.robot">
+<test id="s1-t1" name="TC_001_Successful_OTC_Reversal_Request" line="13">
 <kw name="Create Session" library="RequestsLibrary">
-<arg>reversal_session</arg>
+<arg>otc_reversal_session</arg>
 <arg>${base_url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230203 10:20:26.376" level="INFO">Creating Session using : alias=reversal_session, url=http://10.4.0.68:8081/payment/services/RequestMgrServices/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230203 10:20:26.376" endtime="20230203 10:20:26.376"/>
+<msg timestamp="20230216 10:05:04.681" level="INFO">Creating Session using : alias=otc_reversal_session, url=http://10.4.0.68:8081/payment/services/RequestMgrService, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230216 10:05:04.680" endtime="20230216 10:05:04.681"/>
 </kw>
-<status status="PASS" starttime="20230203 10:20:26.375" endtime="20230203 10:20:26.376"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${xml}</var>
+<arg>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;req:RequestMsg&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Request&gt;&lt;Identity&gt;&lt;Caller&gt;&lt;CallerType&gt;2&lt;/CallerType&gt;&lt;ThirdPartyID&gt;broker_4&lt;/ThirdPartyID&gt;&lt;Password&gt;llSlqPs/y9XT2sjq1xanxzlVvHOSpC3Jj0uShhIkE5FYRpYsV+ajYtW9cZZKxvSm3Zy1ApLzhm3fcbK8JoEuQ8Nz7EqXdJZJuaH7/sJb8EOhzED4ltbZpHeSP/uRuvfseI9vUJRV+H3lx8dfQ+Ae+hxUH02+BAxsaMVCiwsmdbr38ifzRImZcypHtHK4M+bY6E3vB28h+NHg0W68T3J+h8IZ1dcJOkHVaVMOaMjYZbnxR6eBhJ7DR6kY8FZ/mFdKSVI9rsHJ7e0jjsnzINy3UvqHaMeG2/RclF27dgoG8KioLVWVwwZT/gjimglmp2m3R+il+fTBgRZQu06lyYPe4w==&lt;/Password&gt;&lt;ResultURL&gt;${callback_url}&lt;/ResultURL&gt;&lt;/Caller&gt;&lt;Initiator&gt;&lt;IdentifierType&gt;14&lt;/IdentifierType&gt;&lt;Identifier&gt;agentInit&lt;/Identifier&gt;&lt;SecurityCredential&gt;meM//Jt8k1DX9Qgl0dxsyOe7wqqRfq2w7Vzz/BZlQzbfReA0u3StdgwpAhIlbwgYWLtf0TgxCYOWwFRQnafuHyoZ7RGbhYcD+JiGgW8QJR64H6AT09FEHm4plF6ejzKZhvnvhgpXm/S0H9jdX+WTrlcKpm7e2NEQ5n7gMzpQht/RR77/X89SFQXbYMkNRw1tBuCouxWxlKy/FMS8LPRKQfIYxCywO017LMKanGz7NLux+p56Tlabgg94oZCbk9VfaKpi+EASbXQHgegU+1TrZA1xx6XRvllQVmDQzKBDUUQ1aJ0jLTLJfOuF01VxxwbGXQxKeNxAOwpE4hILgSumYw==&lt;/SecurityCredential&gt;&lt;/Initiator&gt;&lt;/Identity&gt;&lt;Transaction&gt;&lt;CommandID&gt;TransactionReversal&lt;/CommandID&gt;&lt;OriginatorConversationID&gt;${uuid}&lt;/OriginatorConversationID&gt;&lt;Timestamp&gt;20130402152345&lt;/Timestamp&gt;&lt;Parameters&gt;&lt;Parameter&gt;&lt;Key&gt;OriginalTransactionID&lt;/Key&gt;&lt;Value&gt;${Mpesa_TID}&lt;/Value&gt;&lt;/Parameter&gt;&lt;/Parameters&gt;&lt;/Transaction&gt;&lt;KeyOwner&gt;1&lt;/KeyOwner&gt;&lt;/Request&gt;]]&gt;&lt;/req:RequestMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230216 10:05:04.681" level="INFO">${xml} = &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;req:RequestMsg&gt;&lt;![CDATA[&lt;?...</msg>
+<status status="PASS" starttime="20230216 10:05:04.681" endtime="20230216 10:05:04.681"/>
 </kw>
-<tag>Sanity</tag>
-<status status="PASS" starttime="20230203 10:20:26.375" endtime="20230203 10:20:26.376"/>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>otc_reversal_session</arg>
+<arg>${base_url}</arg>
+<arg>data=${xml}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230216 10:05:04.776" level="INFO">POST Request : url=http://10.4.0.68:8081/payment/services/RequestMgrService 
+ path_url=/payment/services/RequestMgrService 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '1636'} 
+ body=&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;req:RequestMsg&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Request&gt;&lt;Identity&gt;&lt;Caller&gt;&lt;CallerType&gt;2&lt;/CallerType&gt;&lt;ThirdPartyID&gt;broker_4&lt;/ThirdPartyID&gt;&lt;Password&gt;llSlqPs/y9XT2sjq1xanxzlVvHOSpC3Jj0uShhIkE5FYRpYsV+ajYtW9cZZKxvSm3Zy1ApLzhm3fcbK8JoEuQ8Nz7EqXdJZJuaH7/sJb8EOhzED4ltbZpHeSP/uRuvfseI9vUJRV+H3lx8dfQ+Ae+hxUH02+BAxsaMVCiwsmdbr38ifzRImZcypHtHK4M+bY6E3vB28h+NHg0W68T3J+h8IZ1dcJOkHVaVMOaMjYZbnxR6eBhJ7DR6kY8FZ/mFdKSVI9rsHJ7e0jjsnzINy3UvqHaMeG2/RclF27dgoG8KioLVWVwwZT/gjimglmp2m3R+il+fTBgRZQu06lyYPe4w==&lt;/Password&gt;&lt;ResultURL&gt;http://172.31.255.36:8080/api/v1/callback&lt;/ResultURL&gt;&lt;/Caller&gt;&lt;Initiator&gt;&lt;IdentifierType&gt;14&lt;/IdentifierType&gt;&lt;Identifier&gt;agentInit&lt;/Identifier&gt;&lt;SecurityCredential&gt;meM//Jt8k1DX9Qgl0dxsyOe7wqqRfq2w7Vzz/BZlQzbfReA0u3StdgwpAhIlbwgYWLtf0TgxCYOWwFRQnafuHyoZ7RGbhYcD+JiGgW8QJR64H6AT09FEHm4plF6ejzKZhvnvhgpXm/S0H9jdX+WTrlcKpm7e2NEQ5n7gMzpQht/RR77/X89SFQXbYMkNRw1tBuCouxWxlKy/FMS8LPRKQfIYxCywO017LMKanGz7NLux+p56Tlabgg94oZCbk9VfaKpi+EASbXQHgegU+1TrZA1xx6XRvllQVmDQzKBDUUQ1aJ0jLTLJfOuF01VxxwbGXQxKeNxAOwpE4hILgSumYw==&lt;/SecurityCredential&gt;&lt;/Initiator&gt;&lt;/Identity&gt;&lt;Transaction&gt;&lt;CommandID&gt;TransactionReversal&lt;/CommandID&gt;&lt;OriginatorConversationID&gt;Evaluate uuid.uuid4() modules=uuid&lt;/OriginatorConversationID&gt;&lt;Timestamp&gt;20130402152345&lt;/Timestamp&gt;&lt;Parameters&gt;&lt;Parameter&gt;&lt;Key&gt;OriginalTransactionID&lt;/Key&gt;&lt;Value&gt;RBG21M6W2Y&lt;/Value&gt;&lt;/Parameter&gt;&lt;/Parameters&gt;&lt;/Transaction&gt;&lt;KeyOwner&gt;1&lt;/KeyOwner&gt;&lt;/Request&gt;]]&gt;&lt;/req:RequestMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt; 
+ </msg>
+<msg timestamp="20230216 10:05:04.776" level="INFO">POST Response : url=http://10.4.0.68:8081/payment/services/RequestMgrService 
+ status=200, reason=OK 
+ headers={'Set-Cookie': 'AG_8441=9A8B38F859600E19E9122F401B9571D93221DF1BA2FDBACB; Path=/payment; HttpOnly', 'Content-Type': 'text/xml;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Thu, 16 Feb 2023 07:04:51 GMT', 'Keep-Alive': 'timeout=8', 'Connection': 'keep-alive', 'Server': 'OpenAS'} 
+ body=&lt;?xml version='1.0' encoding='UTF-8'?&gt;&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;&lt;soapenv:Body&gt;&lt;req:ResponseMsg xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Response&gt;&lt;ResponseCode&gt;0&lt;/ResponseCode&gt;&lt;ConversationID&gt;AG_20230216_20105e2377cc211fe98a&lt;/ConversationID&gt;&lt;ResponseDesc&gt;Accept the service request successfully.&lt;/ResponseDesc&gt;&lt;OriginatorConversationID&gt;Evaluate uuid.uuid4() modules=uuid&lt;/OriginatorConversationID&gt;&lt;ServiceStatus&gt;0&lt;/ServiceStatus&gt;&lt;/Response&gt;]]&gt;&lt;/req:ResponseMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt; 
+ </msg>
+<msg timestamp="20230216 10:05:04.776" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230216 10:05:04.681" endtime="20230216 10:05:04.776"/>
+</kw>
+<kw name="Parse Xml" library="XML">
+<var>${xml_body}</var>
+<arg>${response.content}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20230216 10:05:04.777" level="INFO">${xml_body} = &lt;Element 'Envelope' at 0x1068923e0&gt;</msg>
+<status status="PASS" starttime="20230216 10:05:04.776" endtime="20230216 10:05:04.777"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${response_msg}</var>
+<arg>${xml_body}</arg>
+<arg>.//Body/ResponseMsg</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230216 10:05:04.777" level="INFO">${response_msg} = &lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Response&gt;&lt;ResponseCode&gt;0&lt;/ResponseCode&gt;&lt;ConversationID&gt;AG_20230216_20105e2377cc211fe98a&lt;/ConversationID&gt;&lt;ResponseDesc&gt;Accept the service request successfully.&lt;/R...</msg>
+<status status="PASS" starttime="20230216 10:05:04.777" endtime="20230216 10:05:04.777"/>
+</kw>
+<kw name="Parse Xml" library="XML">
+<var>${xml_internal}</var>
+<arg>${response_msg}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20230216 10:05:04.777" level="INFO">${xml_internal} = &lt;Element 'Response' at 0x106892750&gt;</msg>
+<status status="PASS" starttime="20230216 10:05:04.777" endtime="20230216 10:05:04.777"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${response_desc}</var>
+<arg>${xml_internal}</arg>
+<arg>.//ResponseDesc</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230216 10:05:04.777" level="INFO">${response_desc} = Accept the service request successfully.</msg>
+<status status="PASS" starttime="20230216 10:05:04.777" endtime="20230216 10:05:04.777"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response_desc}</arg>
+<arg>Accept the service request successfully.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230216 10:05:04.778" endtime="20230216 10:05:04.778"/>
+</kw>
+<status status="PASS" starttime="20230216 10:05:04.680" endtime="20230216 10:05:04.778"/>
 </test>
-<doc>These are API Tests</doc>
-<status status="PASS" starttime="20230203 10:20:26.103" endtime="20230203 10:20:26.376"/>
+<test id="s1-t2" name="TC_001_Already_Reversed_Callback" line="74">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230216 10:05:09.779" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230216 10:05:04.778" endtime="20230216 10:05:09.780"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>otc_reversal_session</arg>
+<arg>${callback_url}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230216 10:05:09.804" level="INFO">GET Request : url=http://172.31.255.36:8080/api/v1/callback 
+ path_url=/api/v1/callback 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230216 10:05:09.804" level="INFO">GET Response : url=http://172.31.255.36:8080/api/v1/callback 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '643', 'Date': 'Thu, 16 Feb 2023 07:05:09 GMT', 'Keep-Alive': 'timeout=60', 'Connection': 'keep-alive'} 
+ body=&lt;?xml version='1.0' encoding='UTF-8'?&gt;&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;&lt;soapenv:Body&gt;&lt;res:ResultMsg xmlns:res="http://api-v1.gen.mm.vodafone.com/mminterface/result"&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Result&gt;&lt;ResultType&gt;0&lt;/ResultType&gt;&lt;ResultCode&gt;R000001&lt;/ResultCode&gt;&lt;ResultDesc&gt;The transaction has already been reversed.&lt;/ResultDesc&gt;&lt;OriginatorConversationID&gt;Evaluate uuid.uuid4() modules=uuid&lt;/OriginatorConversationID&gt;&lt;ConversationID&gt;AG_20230216_20105e2377cc211fe98a&lt;/ConversationID&gt;&lt;TransactionID&gt;RBG0000000&lt;/TransactionID&gt;&lt;/Result&gt;]]&gt;&lt;/res:ResultMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt; 
+ </msg>
+<msg timestamp="20230216 10:05:09.804" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230216 10:05:09.780" endtime="20230216 10:05:09.804"/>
+</kw>
+<kw name="Parse Xml" library="XML">
+<var>${xml_body}</var>
+<arg>${response.content}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20230216 10:05:09.806" level="INFO">${xml_body} = &lt;Element 'Envelope' at 0x106893240&gt;</msg>
+<status status="PASS" starttime="20230216 10:05:09.805" endtime="20230216 10:05:09.806"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${response_msg}</var>
+<arg>${xml_body}</arg>
+<arg>.//Body/ResultMsg</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230216 10:05:09.806" level="INFO">${response_msg} = &lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Result&gt;&lt;ResultType&gt;0&lt;/ResultType&gt;&lt;ResultCode&gt;R000001&lt;/ResultCode&gt;&lt;ResultDesc&gt;The transaction has already been reversed.&lt;/ResultDesc&gt;&lt;OriginatorConversationID&gt;Eva...</msg>
+<status status="PASS" starttime="20230216 10:05:09.806" endtime="20230216 10:05:09.806"/>
+</kw>
+<kw name="Parse Xml" library="XML">
+<var>${xml_internal}</var>
+<arg>${response_msg}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20230216 10:05:09.806" level="INFO">${xml_internal} = &lt;Element 'Result' at 0x1068933d0&gt;</msg>
+<status status="PASS" starttime="20230216 10:05:09.806" endtime="20230216 10:05:09.806"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${response_desc}</var>
+<arg>${xml_internal}</arg>
+<arg>.//ResultDesc</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230216 10:05:09.807" level="INFO">${response_desc} = The transaction has already been reversed.</msg>
+<status status="PASS" starttime="20230216 10:05:09.807" endtime="20230216 10:05:09.807"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response_desc}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230216 10:05:09.807" endtime="20230216 10:05:09.807"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response_desc}</arg>
+<arg>The transaction has already been reversed.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230216 10:05:09.807" endtime="20230216 10:05:09.807"/>
+</kw>
+<status status="PASS" starttime="20230216 10:05:04.778" endtime="20230216 10:05:09.807"/>
+</test>
+<status status="PASS" starttime="20230216 10:05:04.493" endtime="20230216 10:05:09.807"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Sanity</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="apiTests">apiTests</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Maps">Maps</stat>
 </suite>
 </statistics>
 <errors>

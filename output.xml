@@ -1,17 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230125 14:13:50.341" rpa="false" schemaversion="3">
-<suite id="s1" name="Google-Request" source="/Users/mwatha/PycharmProjects/APIAutomation/tests/google-request.robot">
-<test id="s1-t1" name="Simple request google page" line="5">
-<kw name="Create Session" library="RequestsLibrary">
-<arg>google</arg>
-<arg>https://www.google.co.th</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20230125 14:13:50.436" level="INFO">Creating Session using : alias=google, url=https://www.google.co.th, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20230125 14:13:50.436" endtime="20230125 14:13:50.436"/>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on darwin)" generated="20230214 14:22:43.330" rpa="false" schemaversion="3">
+<suite id="s1" name="Reversals" source="/Users/mwatha/PycharmProjects/APIAutomation/tests/reversals.robot">
+<test id="s1-t1" name="TC_001_Post_Request_n_Validate_Content" line="10">
+<kw name="Evaluate" library="BuiltIn">
+<var>${uuid}</var>
+<arg>uuid.uuid4()</arg>
+<arg>modules=uuid</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230214 14:22:43.495" level="INFO">${uuid} = 0d0a9e56-a3ce-45b0-ab5d-80a5651f5c12</msg>
+<status status="PASS" starttime="20230214 14:22:43.495" endtime="20230214 14:22:43.495"/>
 </kw>
-<status status="PASS" starttime="20230125 14:13:50.436" endtime="20230125 14:13:50.436"/>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>otc_reversal_session</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230214 14:22:43.495" level="INFO">Creating Session using : alias=otc_reversal_session, url=http://10.4.0.68:8081/payment/services/RequestMgrService, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230214 14:22:43.495" endtime="20230214 14:22:43.495"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${xml}</var>
+<arg>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;req:RequestMsg&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Request&gt;&lt;Identity&gt;&lt;Caller&gt;&lt;CallerType&gt;2&lt;/CallerType&gt;&lt;ThirdPartyID&gt;broker_4&lt;/ThirdPartyID&gt;&lt;Password&gt;llSlqPs/y9XT2sjq1xanxzlVvHOSpC3Jj0uShhIkE5FYRpYsV+ajYtW9cZZKxvSm3Zy1ApLzhm3fcbK8JoEuQ8Nz7EqXdJZJuaH7/sJb8EOhzED4ltbZpHeSP/uRuvfseI9vUJRV+H3lx8dfQ+Ae+hxUH02+BAxsaMVCiwsmdbr38ifzRImZcypHtHK4M+bY6E3vB28h+NHg0W68T3J+h8IZ1dcJOkHVaVMOaMjYZbnxR6eBhJ7DR6kY8FZ/mFdKSVI9rsHJ7e0jjsnzINy3UvqHaMeG2/RclF27dgoG8KioLVWVwwZT/gjimglmp2m3R+il+fTBgRZQu06lyYPe4w==&lt;/Password&gt;&lt;ResultURL&gt;http://172.31.252.74:8080/api/v1/callback&lt;/ResultURL&gt;&lt;/Caller&gt;&lt;Initiator&gt;&lt;IdentifierType&gt;14&lt;/IdentifierType&gt;&lt;Identifier&gt;JeyTestInitiator&lt;/Identifier&gt;&lt;SecurityCredential&gt;ochi6plXUfh6NJS3uPNwBL0noxy5mEatMtQr/U8fRhlr6IbxtSn7TY/KhWj+CLqkiXEC4S8fmxtMzZvlC0a3l4kEifx4aEHsMxqikiRwByE7DGd+VO2QQc5yyzIKPFZ3UYCkxW4jIQ8t6rnfftPXnj4po+3OPo8F4ito2Orn2UszAuu7JR7jl+SHC8Ot9ai40Vj/u41So0gjx8iOfjuT5AEHGzxaQzyI3tGU0ysrfVzQORJnIY2DYH7izcdwj8tapfxUQca/99b+eGJty+Up9rEDdFk0o00ClWvp9oiuG0NlQJe+GqUYtEIQbOk6Xof5xUGdPSfiyjSB07FE2gfn5g==&lt;/SecurityCredential&gt;&lt;/Initiator&gt;&lt;/Identity&gt;&lt;Transaction&gt;&lt;CommandID&gt;TransactionReversal&lt;/CommandID&gt;&lt;OriginatorConversationID&gt;${uuid}&lt;/OriginatorConversationID&gt;&lt;Timestamp&gt;20130402152345&lt;/Timestamp&gt;&lt;Parameters&gt;&lt;Parameter&gt;&lt;Key&gt;OriginalTransactionID&lt;/Key&gt;&lt;Value&gt;RB681M2BDY&lt;/Value&gt;&lt;/Parameter&gt;&lt;/Parameters&gt;&lt;/Transaction&gt;&lt;KeyOwner&gt;1&lt;/KeyOwner&gt;&lt;/Request&gt;]]&gt;&lt;/req:RequestMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230214 14:22:43.496" level="INFO">${xml} = &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;req:RequestMsg&gt;&lt;![CDATA[&lt;?...</msg>
+<status status="PASS" starttime="20230214 14:22:43.496" endtime="20230214 14:22:43.496"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>otc_reversal_session</arg>
+<arg>${base_url}</arg>
+<arg>data=${xml}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230214 14:22:43.568" level="INFO">POST Request : url=http://10.4.0.68:8081/payment/services/RequestMgrService 
+ path_url=/payment/services/RequestMgrService 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '1645'} 
+ body=&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body&gt;&lt;req:RequestMsg&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Request&gt;&lt;Identity&gt;&lt;Caller&gt;&lt;CallerType&gt;2&lt;/CallerType&gt;&lt;ThirdPartyID&gt;broker_4&lt;/ThirdPartyID&gt;&lt;Password&gt;llSlqPs/y9XT2sjq1xanxzlVvHOSpC3Jj0uShhIkE5FYRpYsV+ajYtW9cZZKxvSm3Zy1ApLzhm3fcbK8JoEuQ8Nz7EqXdJZJuaH7/sJb8EOhzED4ltbZpHeSP/uRuvfseI9vUJRV+H3lx8dfQ+Ae+hxUH02+BAxsaMVCiwsmdbr38ifzRImZcypHtHK4M+bY6E3vB28h+NHg0W68T3J+h8IZ1dcJOkHVaVMOaMjYZbnxR6eBhJ7DR6kY8FZ/mFdKSVI9rsHJ7e0jjsnzINy3UvqHaMeG2/RclF27dgoG8KioLVWVwwZT/gjimglmp2m3R+il+fTBgRZQu06lyYPe4w==&lt;/Password&gt;&lt;ResultURL&gt;http://172.31.252.74:8080/api/v1/callback&lt;/ResultURL&gt;&lt;/Caller&gt;&lt;Initiator&gt;&lt;IdentifierType&gt;14&lt;/IdentifierType&gt;&lt;Identifier&gt;JeyTestInitiator&lt;/Identifier&gt;&lt;SecurityCredential&gt;ochi6plXUfh6NJS3uPNwBL0noxy5mEatMtQr/U8fRhlr6IbxtSn7TY/KhWj+CLqkiXEC4S8fmxtMzZvlC0a3l4kEifx4aEHsMxqikiRwByE7DGd+VO2QQc5yyzIKPFZ3UYCkxW4jIQ8t6rnfftPXnj4po+3OPo8F4ito2Orn2UszAuu7JR7jl+SHC8Ot9ai40Vj/u41So0gjx8iOfjuT5AEHGzxaQzyI3tGU0ysrfVzQORJnIY2DYH7izcdwj8tapfxUQca/99b+eGJty+Up9rEDdFk0o00ClWvp9oiuG0NlQJe+GqUYtEIQbOk6Xof5xUGdPSfiyjSB07FE2gfn5g==&lt;/SecurityCredential&gt;&lt;/Initiator&gt;&lt;/Identity&gt;&lt;Transaction&gt;&lt;CommandID&gt;TransactionReversal&lt;/CommandID&gt;&lt;OriginatorConversationID&gt;0d0a9e56-a3ce-45b0-ab5d-80a5651f5c12&lt;/OriginatorConversationID&gt;&lt;Timestamp&gt;20130402152345&lt;/Timestamp&gt;&lt;Parameters&gt;&lt;Parameter&gt;&lt;Key&gt;OriginalTransactionID&lt;/Key&gt;&lt;Value&gt;RB681M2BDY&lt;/Value&gt;&lt;/Parameter&gt;&lt;/Parameters&gt;&lt;/Transaction&gt;&lt;KeyOwner&gt;1&lt;/KeyOwner&gt;&lt;/Request&gt;]]&gt;&lt;/req:RequestMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt; 
+ </msg>
+<msg timestamp="20230214 14:22:43.568" level="INFO">POST Response : url=http://10.4.0.68:8081/payment/services/RequestMgrService 
+ status=200, reason=OK 
+ headers={'Set-Cookie': 'AG_8441=E83ACEAC16F996008A099F15EF5B8C6AB1215B2365CCCEB0; Path=/payment; HttpOnly', 'Content-Type': 'text/xml;charset=UTF-8', 'Transfer-Encoding': 'chunked', 'Date': 'Tue, 14 Feb 2023 11:22:32 GMT', 'Keep-Alive': 'timeout=8', 'Connection': 'keep-alive', 'Server': 'OpenAS'} 
+ body=&lt;?xml version='1.0' encoding='UTF-8'?&gt;&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;&lt;soapenv:Body&gt;&lt;req:ResponseMsg xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;Response&gt;&lt;ResponseCode&gt;0&lt;/ResponseCode&gt;&lt;ConversationID&gt;AG_20230214_201014106ea82dd80015&lt;/ConversationID&gt;&lt;ResponseDesc&gt;Accept the service request successfully.&lt;/ResponseDesc&gt;&lt;OriginatorConversationID&gt;0d0a9e56-a3ce-45b0-ab5d-80a5651f5c12&lt;/OriginatorConversationID&gt;&lt;ServiceStatus&gt;0&lt;/ServiceStatus&gt;&lt;/Response&gt;]]&gt;&lt;/req:ResponseMsg&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt; 
+ </msg>
+<msg timestamp="20230214 14:22:43.568" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230214 14:22:43.496" endtime="20230214 14:22:43.568"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230214 14:22:43.568" endtime="20230214 14:22:43.569"/>
+</kw>
+<status status="PASS" starttime="20230214 14:22:43.495" endtime="20230214 14:22:43.569"/>
 </test>
-<status status="PASS" starttime="20230125 14:13:50.342" endtime="20230125 14:13:50.437"/>
+<status status="PASS" starttime="20230214 14:22:43.332" endtime="20230214 14:22:43.569"/>
 </suite>
 <statistics>
 <total>
@@ -20,7 +59,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Google-Request">Google-Request</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Reversals">Reversals</stat>
 </suite>
 </statistics>
 <errors>

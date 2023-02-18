@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation  These are API Tests
-Resource   ../Resources/API/api.robot
+Resource   ../Resources/Tests/reversals.robot
 *** Variables ***
 
 *** Test Cases ***
-Make a simple REST API call for Github users
+Test OTC Airtime reversal
     [Tags]  Sanity
-    Post Request
+Test OTC Airtime reversal
 
 *** Keywords ***
