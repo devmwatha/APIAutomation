@@ -5,8 +5,8 @@ Library  JSONLibrary
 Library  XML
 
 *** Variables ***
-${base_url}     http://10.4.0.68:8081/payment/services/RequestMgrService
-${callback_url}     http://172.31.255.36:8080/api/v1/callback
+${base_url}     http://URL/payment/services/RequestMgrService
+${callback_url}     http://localIP:8080/api/v1/callback
 ${Mpesa_TID}    RBG21M6W2Y
 ${uuid}=    Evaluate    uuid.uuid4()    modules=uuid
 
@@ -16,7 +16,7 @@ TC_001_Successful_OTC_Reversal_Request
 #create the session
     Create Session  otc_reversal_session   ${base_url}
 
-    ${xml}=        set variable      <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request"><soapenv:Header/><soapenv:Body><req:RequestMsg><![CDATA[<?xml version="1.0" encoding="UTF-8"?><Request><Identity><Caller><CallerType>2</CallerType><ThirdPartyID>broker_4</ThirdPartyID><Password>llSlqPs/y9XT2sjq1xanxzlVvHOSpC3Jj0uShhIkE5FYRpYsV+ajYtW9cZZKxvSm3Zy1ApLzhm3fcbK8JoEuQ8Nz7EqXdJZJuaH7/sJb8EOhzED4ltbZpHeSP/uRuvfseI9vUJRV+H3lx8dfQ+Ae+hxUH02+BAxsaMVCiwsmdbr38ifzRImZcypHtHK4M+bY6E3vB28h+NHg0W68T3J+h8IZ1dcJOkHVaVMOaMjYZbnxR6eBhJ7DR6kY8FZ/mFdKSVI9rsHJ7e0jjsnzINy3UvqHaMeG2/RclF27dgoG8KioLVWVwwZT/gjimglmp2m3R+il+fTBgRZQu06lyYPe4w==</Password><ResultURL>${callback_url}</ResultURL></Caller><Initiator><IdentifierType>14</IdentifierType><Identifier>agentInit</Identifier><SecurityCredential>meM//Jt8k1DX9Qgl0dxsyOe7wqqRfq2w7Vzz/BZlQzbfReA0u3StdgwpAhIlbwgYWLtf0TgxCYOWwFRQnafuHyoZ7RGbhYcD+JiGgW8QJR64H6AT09FEHm4plF6ejzKZhvnvhgpXm/S0H9jdX+WTrlcKpm7e2NEQ5n7gMzpQht/RR77/X89SFQXbYMkNRw1tBuCouxWxlKy/FMS8LPRKQfIYxCywO017LMKanGz7NLux+p56Tlabgg94oZCbk9VfaKpi+EASbXQHgegU+1TrZA1xx6XRvllQVmDQzKBDUUQ1aJ0jLTLJfOuF01VxxwbGXQxKeNxAOwpE4hILgSumYw==</SecurityCredential></Initiator></Identity><Transaction><CommandID>TransactionReversal</CommandID><OriginatorConversationID>${uuid}</OriginatorConversationID><Timestamp>20130402152345</Timestamp><Parameters><Parameter><Key>OriginalTransactionID</Key><Value>${Mpesa_TID}</Value></Parameter></Parameters></Transaction><KeyOwner>1</KeyOwner></Request>]]></req:RequestMsg></soapenv:Body></soapenv:Envelope>
+    ${xml}=        set variable
     #Make call and capture response in a variable
     ${response}=   POST On Session  otc_reversal_session   ${base_url}     data=${xml}
 
